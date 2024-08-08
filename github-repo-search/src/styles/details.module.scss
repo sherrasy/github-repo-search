@@ -1,0 +1,17 @@
+.detailsContainer {
+  padding: 24px;
+  background-color: rgba(242, 242, 242, 0.8);
+  width: 100%;
+}
+
+.detailsInfo {
+  font-family: Roboto;
+
+  .detailsTitle {
+    font-size: 32px;
+  }
+  .detailsMainBlock {
+    display: flex;
+    justify-content: space-between;
+  }
+}

@@ -1,9 +1,14 @@
+import styles from '@styles/details.module.scss';
+import DetailsInfo from './details-info';
+
 function Details(): JSX.Element {
+  const isEmpty = false;
     return (
-      <>
-        <h1>Столбцы - Название, язык, число форков, число звезд, дата обновления</h1>
-        <p>Выберите репозиторий</p>
-      </>
+      <div className={styles.detailsContainer}>
+      {isEmpty ?  <p>Выберите репозиторий</p>
+      :<DetailsInfo/>
+            }
+      </div>
     );
   }
   export default Details;

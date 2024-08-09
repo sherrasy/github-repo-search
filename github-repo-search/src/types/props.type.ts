@@ -1,9 +1,9 @@
-import { Repository } from "./repository.interface";
+import { Repository } from './repository.interface';
 
 export type ResultProps = {
-    repositories: Repository[];
-  };
+  repositories: Repository[];
+};
 
 export type DetailsInfoProps = {
-    repository: Repository;
-  };
+  repository: Repository;
+};

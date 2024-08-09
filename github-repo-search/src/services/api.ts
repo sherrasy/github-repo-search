@@ -1,5 +1,5 @@
-import axios, { AxiosError, AxiosInstance, InternalAxiosRequestConfig , AxiosResponse } from 'axios';
 import { ApiConnectParam } from '@utils/constant';
+import axios, { AxiosError, AxiosInstance, AxiosResponse, InternalAxiosRequestConfig } from 'axios';
 
 export const createAPI = (): AxiosInstance => {
   const api = axios.create({
@@ -7,10 +7,10 @@ export const createAPI = (): AxiosInstance => {
     timeout: ApiConnectParam.Timeout,
   });
 
-  api.interceptors.request.use((config:InternalAxiosRequestConfig )=> config);
+  api.interceptors.request.use((config: InternalAxiosRequestConfig) => config);
 
   api.interceptors.response.use(
-    (response:AxiosResponse) => response,
+    (response: AxiosResponse) => response,
     (error: AxiosError) => {
       throw error;
     }

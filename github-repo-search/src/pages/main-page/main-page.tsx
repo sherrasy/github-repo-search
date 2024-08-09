@@ -1,7 +1,7 @@
 import Details from '@/components/details/details';
-import { getRepositories } from '@store/repository-data/selectors';
 import Result from '@components/result/result';
 import Search from '@components/search/search';
+import { getRepositories } from '@store/repository-data/selectors';
 import styles from '@styles/main-page.module.scss';
 import { AppMessages } from '@utils/constant';
 import { useAppSelector } from '@utils/hooks';
@@ -15,7 +15,7 @@ function MainPage(): JSX.Element {
         <h1>{AppMessages.Greeting}</h1>
       ) : (
         <div className={styles.mainPageInfo}>
-          <Result repositories = {repositories}/>
+          <Result repositories={repositories} />
           <Details />
         </div>
       )}

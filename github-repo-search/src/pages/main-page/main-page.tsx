@@ -1,20 +1,25 @@
-import Details from "@/components/details/details";
-import Result from "@components/result/result";
-import Search from "@components/search/search";
+import Details from '@/components/details/details';
+import { getRepositories } from '@store/repository-data/selectors';
+import Result from '@components/result/result';
+import Search from '@components/search/search';
 import styles from '@styles/main-page.module.scss';
+import { AppMessages } from '@utils/constant';
+import { useAppSelector } from '@utils/hooks';
 
 function MainPage(): JSX.Element {
-    const isEmpty = false;
+  const repositories = useAppSelector(getRepositories);
   return (
     <>
-        <Search/>
-       { isEmpty ? 
-        <h1>Добро пожаловать</h1> 
-        :<div className={styles.mainPageInfo}>
-        <Result/>
-        <Details/>
-        </div>}
-        <div className={styles.footer}/>
+      <Search />
+      {!repositories ? (
+        <h1>{AppMessages.Greeting}</h1>
+      ) : (
+        <div className={styles.mainPageInfo}>
+          <Result repositories = {repositories}/>
+          <Details />
+        </div>
+      )}
+      <div className={styles.footer} />
     </>
   );
 }

@@ -1,23 +1,28 @@
+import { DetailsInfoProps } from '@frontend-types/props.type';
 import { Chip, Rating } from '@mui/material';
 import styles from '@styles/details.module.scss';
 
-function DetailsInfo(): JSX.Element {
-    const languages = Array.from({length:5},(_,i)=>`lang-${i}`) 
-    return (
-      <div className={styles.detailsInfo}>
-      <span className={styles.detailsTitle}>Название репозитория</span>
+function DetailsInfo({repository}:DetailsInfoProps): JSX.Element {
+ const {name, language, rating, topics, description, license} = repository;
+  return (
+    <div className={styles.detailsInfo}>
+      <span className={styles.detailsTitle}>{name}</span>
       <div>
         <div className={styles.detailsMainBlock}>
-            <p><Chip label="LangChosen" color='primary'/></p>
-            <p><Rating max={1} value={1} readOnly/> 9 800 000</p>
+          <div>
+            <Chip label={language} color='primary' />
+          </div>
+          <div className={styles.detailsRaiting}>
+            <Rating max={1} value={1} readOnly/> 
+            <span>{rating}</span>
+          </div>
         </div>
 
-        <p>{languages.map((item)=> <Chip label = {item}/>)}</p>
-        <p>Description?</p>
-        <p>licence</p>
+        <div className={styles.detailsTopics} >{topics.map((item)=> <Chip label = {item} key={item}/>)}</div>
+        <p>{description}</p>
+        <p>{license?.id} licence</p>
       </div>
-      </div>
-
-    );
-  }
-  export default DetailsInfo;
+    </div>
+  );
+}
+export default DetailsInfo;

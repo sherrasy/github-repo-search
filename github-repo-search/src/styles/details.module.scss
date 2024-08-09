@@ -1,0 +1,39 @@
+.detailsContainer {
+  padding: 24px;
+  background-color: rgba(242, 242, 242, 0.8);
+  width: 100%;
+}
+
+.detailsInfo {
+  font-family: Roboto;
+  font-size: 14px;
+
+  .detailsTitle {
+    font-size: 32px;
+  }
+
+  .detailsMainBlock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 16px 0;
+
+    .detailsRaiting {
+      display: flex;
+      align-items: center;
+
+      & > span:first-child {
+        padding-right: 8px;
+      }
+    }
+  }
+
+  .detailsTopics {
+    margin: 16px 0;
+
+    & > div {
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+  }
+}

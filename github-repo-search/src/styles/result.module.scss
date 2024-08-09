@@ -1,0 +1,38 @@
+.result {
+  margin: 24px 32px 0px;
+  display: grid;
+  height: 90vh;
+
+  .resultTitle {
+    margin-top: 0;
+    margin-bottom: 24px;
+    font-family: Roboto;
+    font-size: 48px;
+    font-weight: 400;
+  }
+
+  .resultTable {
+    width: 912px;
+
+    div.resultColumn {
+      width: 182px !important;
+      max-width: 182px !important;
+
+      & div {
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+
+        & div {
+          font-family: Roboto;
+          font-weight: 700;
+        }
+      }
+    }
+
+    .resultCell {
+      min-width: 182px;
+      max-width: 182px;
+      width: 182px;
+    }
+  }
+}

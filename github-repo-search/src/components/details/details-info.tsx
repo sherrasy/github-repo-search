@@ -10,7 +10,7 @@ function DetailsInfo({ repository }: DetailsInfoProps): JSX.Element {
       <div>
         <div className={styles.detailsMainBlock}>
           <div>
-            <Chip label={language} color='primary' />
+            <Chip label={language ? language : 'None'} color='primary' />
           </div>
           <div className={styles.detailsRaiting}>
             <Rating max={1} value={1} readOnly />

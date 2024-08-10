@@ -9,7 +9,7 @@ function Details(): JSX.Element {
   return (
     <div className={styles.detailsContainer}>
       {!repository ? (
-        <p>{AppMessages.DetailsInitial}</p>
+        <p className={styles.detailsInitialText}>{AppMessages.DetailsInitial}</p>
       ) : (
         <DetailsInfo repository={repository} />
       )}

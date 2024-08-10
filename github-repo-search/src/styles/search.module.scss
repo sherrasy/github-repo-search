@@ -1,23 +1,28 @@
+@import './variables';
+
 .searchContainer {
-  background-color: #00838f;
+  background-color: $color-dark-cyan;
   height: 80px;
   display: flex;
   align-items: center;
 
   .searchInput {
-    margin-top: 16px;
-    margin-bottom: 16px;
-    margin-left: 32px;
-    margin-right: 8px;
+    margin: 16px 8px 16px 32px;
     width: 912px;
     height: 44px;
-    font-family: Roboto;
     padding-left: 16px;
     border-radius: 4px;
     border: none;
 
     &::placeholder {
       font-style: italic;
+    }
+  }
+
+  .searchInputError {
+    border: 3px solid $color-red;
+    &::placeholder {
+      color: $color-red;
     }
   }
 }

@@ -4,7 +4,7 @@ export const REDUCER_NAME = "REPOSITORY"
 
 export const sortingParams = ['asc', 'desc'] as GridSortDirection[];
 
-export const pageSizeParams = [10, 25, 100];
+export const pageSizeParams = [ 5, 10, 25, 100];
 
 export const ResultFieldName = {
   name: 'Название',

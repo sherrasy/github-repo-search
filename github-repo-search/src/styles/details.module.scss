@@ -1,11 +1,19 @@
+@import './variables';
+
 .detailsContainer {
+  display: flex;
+  justify-content: center;
   padding: 24px;
-  background-color: rgba(242, 242, 242, 0.8);
+  background-color: $color-white-smoke;
   width: 100%;
+
+  .detailsInitialText {
+    align-self: center;
+    color: $color-matterhorn;
+  }
 }
 
 .detailsInfo {
-  font-family: Roboto;
   font-size: 14px;
 
   .detailsTitle {

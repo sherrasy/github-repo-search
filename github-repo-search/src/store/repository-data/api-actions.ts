@@ -19,7 +19,7 @@ export const fetchRepositories = createAsyncThunk<
   `${REDUCER_NAME}/${ActionName.FetchRepositories}`,
   async (query, { extra: api }) => {
     try {
-      const { data } = await api.get<RepositoriesData>(`repositories?q=${query ? query : 'python&sort=stars&order=desc&page=1&per_page=10'}`);
+      const { data } = await api.get<RepositoriesData>(`repositories?q=${query ? query.searchString : 'python&sort=stars&order=asc&page=1&per_page=10'}`);
       return adaptRepositoriesToClient(data.items);
     } catch (error) {
       return Promise.reject(error);

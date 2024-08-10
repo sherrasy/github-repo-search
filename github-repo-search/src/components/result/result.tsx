@@ -54,6 +54,11 @@ function Result({ repositories }: ResultProps): JSX.Element {
       <DataGrid
         onRowClick={handleRowSelect}
         pageSizeOptions={pageSizeParams}
+        initialState={{
+          pagination: {
+            paginationModel: { pageSize: pageSizeParams[0], page: 0 },
+          },
+        }}
         rows={rows}
         columns={columns}
         className={styles.resultTable}

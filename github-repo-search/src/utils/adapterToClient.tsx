@@ -1,10 +1,10 @@
-import { Licence, LicenceData, Repository, RepositoryData } from "@frontend-types/repository.interface";
+import { LicenceData, Repository, RepositoryData } from "@frontend-types/repository.interface";
 
-const adaptLicence = (license:LicenceData) :Licence =>{
+const adaptLicence = (license:LicenceData) :string =>{
     if( !license || !license.url){
-        return {id: "Not asserted", url:null}
+        return "Not asserted"
     }
-    return { id: license.spdx_id, url: license.url } 
+    return license.spdx_id; 
 }
 
 export const adaptRepositoryToClient = (repository: RepositoryData): Repository => ({

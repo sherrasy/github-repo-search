@@ -8,12 +8,12 @@ function Search(): JSX.Element {
   const dispatch = useAppDispatch();
   const inputRef = useRef<HTMLInputElement>(null);
   const handleSearchClick = () => {
-    if(!inputRef.current?.value){
+    if(!inputRef.current?.value.trim()){
       inputRef.current?.classList.add(styles.searchInputError)
       return;
     }
     inputRef.current?.classList.remove(styles.searchInputError)
-    dispatch(fetchRepositories({searchString:inputRef.current?.value}))
+    dispatch(fetchRepositories(inputRef.current?.value))
   }
   return (
     <div className={styles.searchContainer}>

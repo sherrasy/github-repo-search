@@ -1,8 +1,3 @@
-export type Licence = {
-  id: string;
-  url: string | null;
-};
-
 export type LicenceData = {
   key: string;
   name: string;
@@ -14,7 +9,7 @@ export interface Repository {
   id: number;
   name: string;
   description: string;
-  license: Licence;
+  license: string;
   language: string | null;
   forks: number;
   rating: number;

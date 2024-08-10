@@ -1,14 +1,15 @@
 @import './variables';
 
 .detailsContainer {
-  display: flex;
-  justify-content: center;
   padding: 24px;
   background-color: $color-white-smoke;
   width: 100%;
 
-  .detailsInitialText {
-    align-self: center;
+  .detailsInitialBlock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
     color: $color-matterhorn;
   }
 }

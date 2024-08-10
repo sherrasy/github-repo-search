@@ -10,7 +10,7 @@ function DetailsInfo({ repository }: DetailsInfoProps): JSX.Element {
       <div>
         <div className={styles.detailsMainBlock}>
           <div>
-            <Chip label={language} color='primary' />
+            <Chip label={language ? language : 'None'} color='primary' />
           </div>
           <div className={styles.detailsRaiting}>
             <Rating max={1} value={1} readOnly />
@@ -20,7 +20,7 @@ function DetailsInfo({ repository }: DetailsInfoProps): JSX.Element {
 
         <div className={styles.detailsTopics} >{topics.map((item) => <Chip label={item} key={item} />)}</div>
         <p>{description}</p>
-        <p>{license?.id} licence</p>
+        <p>{license} licence</p>
       </div>
     </div>
   );

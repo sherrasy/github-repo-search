@@ -8,13 +8,17 @@ function Search(): JSX.Element {
   const dispatch = useAppDispatch();
   const inputRef = useRef<HTMLInputElement>(null);
   const handleSearchClick = () => {
-    console.log(inputRef.current?.value)
-    dispatch(fetchRepositories())
+    if(!inputRef.current?.value.trim()){
+      inputRef.current?.classList.add(styles.searchInputError)
+      return;
+    }
+    inputRef.current?.classList.remove(styles.searchInputError)
+    dispatch(fetchRepositories(inputRef.current?.value))
   }
   return (
     <div className={styles.searchContainer}>
       <input className={styles.searchInput} placeholder='Введите поисковый запрос' ref={inputRef} />
-      <Button variant="contained" onClick={handleSearchClick}>Искать</Button>
+      <Button variant="contained" onClick={handleSearchClick} >Искать</Button>
     </div>
   );
 }

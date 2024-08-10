@@ -1,14 +1,21 @@
-import { Repository, RepositoryData } from "@frontend-types/repository.interface";
+import { LicenceData, Repository, RepositoryData } from "@frontend-types/repository.interface";
+
+const adaptLicence = (license:LicenceData) :string =>{
+    if( !license || !license.url){
+        return "Not asserted"
+    }
+    return license.spdx_id; 
+}
 
 export const adaptRepositoryToClient = (repository: RepositoryData): Repository => ({
     id: repository.id,
     name: repository.name,
     description: repository.description,
-    license: repository.license !== null ? { id: repository.license.spdx_id, url: repository.license.url } : repository.license,
+    license: adaptLicence(repository.license),
     language: repository.language,
     forks: repository.forks,
     rating: repository.stargazers_count,
-    updatedAt: repository.updated_at,
+    updatedAt:repository.updated_at,
     topics: repository.topics,
 });
 

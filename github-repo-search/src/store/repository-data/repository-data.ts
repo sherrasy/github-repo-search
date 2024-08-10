@@ -14,7 +14,7 @@ export const repositoryData = createSlice({
   name: REDUCER_NAME,
   initialState,
   reducers: {
-    setCurrentRepository: (state, action: PayloadAction<Repository>) => {
+    setCurrentRepository: (state, action: PayloadAction<Repository|null>) => {
       state.currentRepository = action.payload;
       console.log(action.payload)
     },

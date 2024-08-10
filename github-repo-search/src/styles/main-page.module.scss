@@ -1,9 +1,30 @@
-.mainPageInfo {
+@import './variables';
+
+.mainPageContainer {
+  min-height: 100vh;
+  font-family: Roboto;
+}
+
+.mainPageInfo,
+.mainPageText {
   display: flex;
+  height: calc(100vh - 112px);
+}
+.mainPageText {
+  justify-content: center;
+  align-items: center;
+  .greetingText {
+    font-size: 46px;
+    font-weight: 400;
+    color: $color-matterhorn;
+  }
+}
+
+.mainPageInfo {
   width: 100%;
 }
 
 .footer {
-  background-color: #4f4f4f;
+  background-color: $color-matterhorn;
   height: 32px;
 }

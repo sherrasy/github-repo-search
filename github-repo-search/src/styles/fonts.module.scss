@@ -3,7 +3,9 @@
   font-weight: 400;
   font-family: 'Roboto';
   font-display: swap;
-  src: url('./src/assets/fonts/roboto-regular.tff') format('tff');
+  src: url('./src/assets/fonts/roboto-regular.tff') format('tff'),
+    url('./src/assets/fonts/roboto-regular.woff2') format('woff2'),
+    url('./src/assets/fonts/roboto-regular.woff') format('woff');
 }
 
 @font-face {
@@ -11,7 +13,9 @@
   font-weight: 500;
   font-family: 'Roboto';
   font-display: swap;
-  src: url('./src/assets/fonts/roboto-medium.tff') format('tff');
+  src: url('./src/assets/fonts/roboto-medium.tff') format('tff'),
+    url('./src/assets/fonts/roboto-medium.woff2') format('woff2'),
+    url('./src/assets/fonts/roboto-medium.woff') format('woff');
 }
 
 @font-face {
@@ -19,5 +23,7 @@
   font-weight: 700;
   font-family: 'Roboto';
   font-display: swap;
-  src: url('./src/assets/fonts/roboto-bold.tff') format('tff');
+  src: url('./src/assets/fonts/roboto-bold.tff') format('tff'),
+    url('./src/assets/fonts/roboto-bold.woff2') format('woff2'),
+    url('./src/assets/fonts/roboto-bold.woff') format('woff');
 }

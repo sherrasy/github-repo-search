@@ -1,3 +1,20 @@
+// Интерфейсы репозиториев
+// ------
+
+// Интерфейс репозитория, который сохраняется в store и используется в приложении
+export interface Repository {
+  id: number; // уникальный идентификатор
+  name: string; // название
+  description: string; //описание
+  license: string; // код лицензии или not asserted в случае отсутствия таковой 
+  language: string | null; // основной язык репозитория
+  forks: number; // число форков
+  rating: number; // число звезд
+  updatedAt: string; // дата обновления
+  topics: string[]; // топики отмеченные в репозитории в деталях
+}
+
+// Тип лицензии репозитория, который получается с API
 export type LicenceData = {
   key: string;
   name: string;
@@ -5,18 +22,8 @@ export type LicenceData = {
   url: string | null;
   node_id: string;
 } | null;
-export interface Repository {
-  id: number;
-  name: string;
-  description: string;
-  license: string;
-  language: string | null;
-  forks: number;
-  rating: number;
-  updatedAt: string;
-  topics: string[];
-}
 
+//Интерфейс репозитория, который получается с API
 export interface RepositoryData {
   id: number;
   name: string;
@@ -29,6 +36,7 @@ export interface RepositoryData {
   topics: string[];
 }
 
+// Интерфейс списка репозиториев, который получается с API
 export interface RepositoriesData {
   total_count: number;
   incomplete_results: boolean;

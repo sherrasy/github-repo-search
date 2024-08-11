@@ -1,50 +1,53 @@
 import { ResultProps } from '@frontend-types/props.type';
-import {
-  DataGrid,
-  GridColDef,
-  GridRowParams,
-  GridRowsProp,
-} from '@mui/x-data-grid';
+import { DataGrid, GridColDef, GridRowParams, GridRowsProp } from '@mui/x-data-grid';
 import { setCurrentRepository } from '@store/repository-data/repository-data';
 import styles from '@styles/result.module.scss';
-import {
-  pageSizeParams,
-  ResultFieldName,
-  sortingParams,
-} from '@utils/constant';
+import { pageSizeParams, ResultFieldName, sortingParams } from '@utils/constant';
 import { useAppDispatch } from '@utils/hooks';
 
 function Result({ repositories }: ResultProps): JSX.Element {
   const dispatch = useAppDispatch();
-  const rows: GridRowsProp = repositories
-    ? repositories.map((repository) => repository)
-    : [];
+  // Общие свойства для колонок таблицы
+  const baseColumnParams = {
+    headerClassName: styles.resultColumn,
+    cellClassName: styles.resultCell,
+    disableColumnMenu: true,
+    resizable: false,
+    sortingOrder: sortingParams,
+  };
 
+  // Ряды таблицы из полученых данных
+  const rows: GridRowsProp = repositories ? repositories : [];
+
+  // Колонки таблицы с настройками в зависимости от названия поля
   const columns: GridColDef[] = Object.entries(ResultFieldName).map(
     ([key, value]) => {
       const columnParams = {
         field: key,
         headerName: value,
-        headerClassName: styles.resultColumn,
-        cellClassName: styles.resultCell,
-        disableColumnMenu: true,
-        resizable: false,
-        sortable: value !== ResultFieldName.name,
-        sortingOrder: sortingParams,
+        ...baseColumnParams,        
       };
 
-      if (value === ResultFieldName.updatedAt) {
-       return {
-          ...columnParams,
-          type: 'date',
-          valueGetter: (value:string) =>  value && new Date(value),
-        };
+      switch (value) {
+        case ResultFieldName.updatedAt:
+          return{
+                ...columnParams,
+                  type: 'date',
+                  valueGetter: (value: string) =>  (value ? new Date(value) : null),
+              }
+        case ResultFieldName.name:
+        case ResultFieldName.language:
+          return {
+                ...columnParams,
+                sortable: false,
+              }
+        default:
+          return columnParams;
       }
-
-      return columnParams;
     }
   );
 
+  // Выбор репозитория для отображения деталей
   const handleRowSelect = (data: GridRowParams) =>
     dispatch(setCurrentRepository(data.row));
 

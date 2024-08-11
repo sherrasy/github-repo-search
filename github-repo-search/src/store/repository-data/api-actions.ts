@@ -6,6 +6,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ActionName } from '@utils/constant';
 import { AxiosInstance } from 'axios';
 
+// Асинхронное действие для получения списка репозиториев по искомой строке
 export const fetchRepositories = createAsyncThunk<
   Repository[],
   string,

@@ -4,17 +4,20 @@ import styles from '@styles/details.module.scss';
 
 function DetailsInfo({ repository }: DetailsInfoProps): JSX.Element {
   const { name, language, rating, topics, description, license } = repository;
+  // Форматирует количество звезд для отображения с тысячным разделителем   
+  const formattedRating = new Intl.NumberFormat("ru-RU").format(rating);
+
   return (
     <div className={styles.detailsInfo}>
       <span className={styles.detailsTitle}>{name}</span>
       <div>
         <div className={styles.detailsMainBlock}>
-          <div>
-            <Chip label={language ? language : 'None'} color='primary' />
+          <div >
+            <Chip className={styles.detailsLanguageChip} label={language ? language : 'None'} color='primary' />
           </div>
           <div className={styles.detailsRaiting}>
             <Rating max={1} value={1} readOnly />
-            <span>{rating}</span>
+            <span>{formattedRating}</span>
           </div>
         </div>
 

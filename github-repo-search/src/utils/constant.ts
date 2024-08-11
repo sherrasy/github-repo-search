@@ -25,5 +25,7 @@ export const ApiConnectParam = {
 
 export const AppMessages = {
   Greeting: 'Добро пожаловать',
+  Loading: 'Loading...',
+  Error: 'Произошла ошибка. Попробуйте снова.',
   DetailsInitial: 'Выберите репозиторий',
 } as const;

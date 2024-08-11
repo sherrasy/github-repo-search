@@ -22,5 +22,7 @@ export const API_URL = 'https://api.github.com/graphql'
 
 export const AppMessages = {
   Greeting: 'Добро пожаловать',
+  Loading: 'Loading...',
+  Error: 'Произошла ошибка. Попробуйте снова.',
   DetailsInitial: 'Выберите репозиторий',
 } as const;

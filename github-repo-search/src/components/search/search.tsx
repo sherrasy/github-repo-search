@@ -7,18 +7,20 @@ import { useRef } from 'react';
 function Search(): JSX.Element {
   const dispatch = useAppDispatch();
   const inputRef = useRef<HTMLInputElement>(null);
+  // Убирает выделение inputа, если до этого была ошибка
+  const removeErrorOutline = () => inputRef.current?.classList.remove(styles.searchInputError);
+
+  // Добавляет выделение inputа, если в нем нет значения для поиска, иначе отправляет запрос на получение списка репозиториев
   const handleSearchClick = () => {
-    if(!inputRef.current?.value.trim()){
+    if (!inputRef.current?.value.trim()) {
       inputRef.current?.classList.add(styles.searchInputError)
       return;
     }
-    inputRef.current?.classList.remove(styles.searchInputError)
     dispatch(fetchRepositories(inputRef.current?.value))
   }
   return (
     <div className={styles.searchContainer}>
-      <input className={styles.searchInput} placeholder='Введите поисковый запрос' ref={inputRef} />
-      <Button variant="contained" onClick={handleSearchClick} >Искать</Button>
+      <input className={styles.searchInput} placeholder='Введите поисковый запрос' ref={inputRef} onInput={removeErrorOutline} />      <Button variant="contained" onClick={handleSearchClick} >Искать</Button>
     </div>
   );
 }

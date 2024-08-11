@@ -8,6 +8,7 @@ import { GraphQLClient } from "graphql-request";
 import SearchRepositories  from "./search-query.graphql";
 import { adaptRepositoriesToClient } from "@/utils/adapterToClient";
 
+// Асинхронное действие для получения списка репозиториев по искомой строке
 export const fetchRepositories = createAsyncThunk<
   Repository[],
   string,

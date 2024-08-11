@@ -1,14 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { createAPI } from '@services/api';
 import { rootReducer } from './root-reducer';
-
+// Конфигурация хранилища
+// Создается экземпляр axios 
 export const api = createAPI();
 
 export const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({
     thunk: {
-      extraArgument: api
+      extraArgument: api //передается созданный экземпляр для возможности обращения к нему из действия в хранилище
     }
   }),
 });

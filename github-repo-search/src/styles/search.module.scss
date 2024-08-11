@@ -9,7 +9,7 @@
   .searchInput {
     margin: 16px 8px 16px 32px;
     width: 912px;
-    height: 44px;
+    height: 48px;
     padding-left: 16px;
     border-radius: 4px;
     border: none;
@@ -17,6 +17,7 @@
 
     &::placeholder {
       font-style: italic;
+      font-weight: 400;
     }
   }
 
@@ -25,5 +26,9 @@
     &::placeholder {
       color: $color-red;
     }
+  }
+
+  button {
+    background-color: $color-dodger-blue;
   }
 }

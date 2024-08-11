@@ -9,6 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     height: 100%;
     color: $color-matterhorn;
   }
@@ -26,6 +27,10 @@
     justify-content: space-between;
     align-items: center;
     margin: 16px 0;
+
+    .detailsLanguageChip {
+      background-color: $color-dodger-blue;
+    }
 
     .detailsRaiting {
       display: flex;

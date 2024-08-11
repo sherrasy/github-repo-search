@@ -1,0 +1,29 @@
+query SearchRepositories($searchString: String!) {
+  search(query: $searchString, type: REPOSITORY, first: 10) {
+    edges {
+      node {
+        ... on Repository {
+          id
+          name
+          description
+          licenseInfo {
+            spdxId
+          }
+          forkCount
+          stargazerCount
+          primaryLanguage {
+            name
+          }
+          updatedAt
+          repositoryTopics(first: 10) {
+            nodes {
+              topic {
+                name
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

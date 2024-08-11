@@ -1,12 +1,5 @@
-export type LicenceData = {
-  key: string;
-  name: string;
-  spdx_id: string;
-  url: string | null;
-  node_id: string;
-} | null;
 export interface Repository {
-  id: number;
+  id: string;
   name: string;
   description: string;
   license: string;
@@ -18,19 +11,27 @@ export interface Repository {
 }
 
 export interface RepositoryData {
-  id: number;
-  name: string;
-  description: string;
-  license: LicenceData
-  language: string | null;
-  forks: number;
-  stargazers_count: number;
-  updated_at: string;
-  topics: string[];
+  node: {
+    id: string;
+    name: string;
+    description: string;
+    licenseInfo: {
+      spdxId: string;
+    };
+    primaryLanguage: {
+      name: string;
+    };
+    forkCount: number;
+    stargazerCount: number;
+    repositoryTopics: {
+      nodes: { topic: { name: string } }[];
+    };
+    updatedAt: string;
+  };
 }
 
 export interface RepositoriesData {
-  total_count: number;
-  incomplete_results: boolean;
-  items: RepositoryData[];
+  search: {
+    edges: RepositoryData[];
+  };
 }

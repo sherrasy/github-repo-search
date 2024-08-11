@@ -1,10 +1,12 @@
-import { adaptRepositoriesToClient } from "@/utils/adapterToClient";
+// import { adaptRepositoriesToClient } from "@/utils/adapterToClient";
 import { REDUCER_NAME } from "@/utils/constant";
 import { RepositoriesData, Repository } from "@frontend-types/repository.interface";
 import { AppDispatch, State } from '@frontend-types/state.type';
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ActionName } from '@utils/constant';
-import { AxiosInstance } from 'axios';
+import { GraphQLClient } from "graphql-request";
+import SearchRepositories  from "./search-query.graphql";
+import { adaptRepositoriesToClient } from "@/utils/adapterToClient";
 
 export const fetchRepositories = createAsyncThunk<
   Repository[],
@@ -12,14 +14,14 @@ export const fetchRepositories = createAsyncThunk<
   {
     dispatch: AppDispatch;
     state: State;
-    extra: AxiosInstance;
+    extra: GraphQLClient;
   }
 >(
   `${REDUCER_NAME}/${ActionName.FetchRepositories}`,
-  async (query, { extra: api }) => {
+  async (searchString, { extra: api }) => {
     try {
-      const { data } = await api.get<RepositoriesData>(`repositories?q=${query}&per_page=100`);
-      return adaptRepositoriesToClient(data.items);
+      const data = await api.request<RepositoriesData>(SearchRepositories, {searchString});
+      return adaptRepositoriesToClient(data.search.edges);
     } catch (error) {
       return Promise.reject(error);
     }

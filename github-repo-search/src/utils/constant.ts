@@ -18,10 +18,7 @@ export const ActionName = {
   FetchRepositories: 'fetch-repositories',
 } as const;
 
-export const ApiConnectParam = {
-  Url: 'https://api.github.com/search',
-  Timeout: 5000
-};
+export const API_URL = 'https://api.github.com/graphql'
 
 export const AppMessages = {
   Greeting: 'Добро пожаловать',

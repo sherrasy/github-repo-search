@@ -1,20 +1,12 @@
-import { ApiConnectParam } from '@utils/constant';
-import axios, { AxiosError, AxiosInstance, AxiosResponse, InternalAxiosRequestConfig } from 'axios';
+import { API_URL } from '@utils/constant';
+import { GraphQLClient } from 'graphql-request';
 
-export const createAPI = (): AxiosInstance => {
-  const api = axios.create({
-    baseURL: ApiConnectParam.Url,
-    timeout: ApiConnectParam.Timeout,
-  });
-
-  api.interceptors.request.use((config: InternalAxiosRequestConfig) => config);
-
-  api.interceptors.response.use(
-    (response: AxiosResponse) => response,
-    (error: AxiosError) => {
-      throw error;
-    }
-  );
-
+export const createAPI = (): GraphQLClient => {
+  const token = import.meta.env.VITE_TOKEN;
+  const api = new GraphQLClient(API_URL, {
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  })
   return api;
 };

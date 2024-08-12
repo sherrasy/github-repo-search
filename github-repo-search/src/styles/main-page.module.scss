@@ -10,9 +10,11 @@
   display: flex;
   height: calc(100vh - 112px);
 }
+
 .mainPageText {
   justify-content: center;
   align-items: center;
+
   .greetingText {
     font-size: 46px;
     font-weight: 400;

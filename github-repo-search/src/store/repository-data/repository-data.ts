@@ -1,4 +1,4 @@
-import { REDUCER_NAME } from "@/utils/constant";
+import { DefaultStoreName } from "@/utils/constant";
 import { Repository } from "@frontend-types/repository.interface";
 import { RepositoryState } from "@frontend-types/state.type";
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
@@ -12,7 +12,7 @@ const initialState: RepositoryState = {
 };
 // Слайс редьюсера для работы с репозиториями
 export const repositoryData = createSlice({
-  name: REDUCER_NAME,
+  name: DefaultStoreName.Reducer,
   initialState,
   reducers: {
     // Действие по выбору отдельного репозитория для отображения информации

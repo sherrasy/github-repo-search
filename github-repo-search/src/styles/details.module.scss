@@ -1,9 +1,9 @@
 @import './variables';
 
 .detailsContainer {
+  width: 100%;
   padding: 24px;
   background-color: $color-white-smoke;
-  width: 100%;
 
   .detailsInitialBlock {
     display: flex;
@@ -16,6 +16,7 @@
 }
 
 .detailsInfo {
+  padding-right: 8px;
   font-size: 14px;
 
   .detailsTitle {
@@ -49,5 +50,9 @@
       margin-right: 8px;
       margin-bottom: 8px;
     }
+  }
+
+  .detailsLicence {
+    margin-top: 24px;
   }
 }

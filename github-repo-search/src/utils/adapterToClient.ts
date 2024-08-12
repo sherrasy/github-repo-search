@@ -1,5 +1,7 @@
 import { LicenceData, Repository, RepositoryData } from "@frontend-types/repository.interface";
+// Функции для адаптирования полученых с API данных
 
+// Лицензии - для отображения id или текста о ее отсутствии
 const adaptLicence = (license:LicenceData) :string =>{
     if( !license || !license.url){
         return "Not asserted"
@@ -7,6 +9,7 @@ const adaptLicence = (license:LicenceData) :string =>{
     return license.spdx_id; 
 }
 
+// Одного репозитория
 export const adaptRepositoryToClient = (repository: RepositoryData): Repository => ({
     id: repository.id,
     name: repository.name,
@@ -19,5 +22,6 @@ export const adaptRepositoryToClient = (repository: RepositoryData): Repository 
     topics: repository.topics,
 });
 
+// Получаемого списка репозиториев
 export const adaptRepositoriesToClient = (repositories: RepositoryData[]): Repository[] =>
     repositories.map((repository: RepositoryData) => adaptRepositoryToClient(repository));

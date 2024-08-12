@@ -1,11 +1,11 @@
-import { adaptRepositoriesToClient } from "@/utils/adapterToClient";
-import { REDUCER_NAME } from "@/utils/constant";
 import { RepositoriesData, Repository } from "@frontend-types/repository.interface";
 import { AppDispatch, State } from '@frontend-types/state.type';
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { ActionName } from '@utils/constant';
+import { adaptRepositoriesToClient } from "@utils/adapterToClient";
+import { DefaultStoreName } from "@utils/constant";
 import { AxiosInstance } from 'axios';
 
+// Асинхронное действие для получения списка репозиториев по искомой строке
 export const fetchRepositories = createAsyncThunk<
   Repository[],
   string,
@@ -15,7 +15,7 @@ export const fetchRepositories = createAsyncThunk<
     extra: AxiosInstance;
   }
 >(
-  `${REDUCER_NAME}/${ActionName.FetchRepositories}`,
+  `${DefaultStoreName.Reducer}/${DefaultStoreName.Action}`,
   async (query, { extra: api }) => {
     try {
       const { data } = await api.get<RepositoriesData>(`repositories?q=${query}&per_page=100`);

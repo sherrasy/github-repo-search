@@ -1,7 +1,5 @@
 import { GridSortDirection } from "@mui/x-data-grid";
 
-export const REDUCER_NAME = "REPOSITORY"
-
 export const sortingParams = ['asc', 'desc'] as GridSortDirection[];
 
 export const pageSizeParams = [ 10, 25, 100];
@@ -14,8 +12,9 @@ export const ResultFieldName = {
   updatedAt: 'Дата обновления',
 } as const;
 
-export const ActionName = {
-  FetchRepositories: 'fetch-repositories',
+export const DefaultStoreName = {
+  Reducer: 'REPOSITORY',
+  Action: 'fetch-repositories',
 } as const;
 
 export const ApiConnectParam = {
@@ -25,5 +24,7 @@ export const ApiConnectParam = {
 
 export const AppMessages = {
   Greeting: 'Добро пожаловать',
+  Loading: 'Loading...',
+  Error: 'Произошла ошибка. Попробуйте снова.',
   DetailsInitial: 'Выберите репозиторий',
 } as const;

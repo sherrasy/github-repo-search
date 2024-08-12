@@ -1,20 +1,22 @@
 @import './variables';
 
 .detailsContainer {
+  width: 100%;
   padding: 24px;
   background-color: $color-white-smoke;
-  width: 100%;
 
   .detailsInitialBlock {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     height: 100%;
     color: $color-matterhorn;
   }
 }
 
 .detailsInfo {
+  padding-right: 8px;
   font-size: 14px;
 
   .detailsTitle {
@@ -26,6 +28,10 @@
     justify-content: space-between;
     align-items: center;
     margin: 16px 0;
+
+    .detailsLanguageChip {
+      background-color: $color-dodger-blue;
+    }
 
     .detailsRaiting {
       display: flex;
@@ -44,5 +50,9 @@
       margin-right: 8px;
       margin-bottom: 8px;
     }
+  }
+
+  .detailsLicence {
+    margin-top: 24px;
   }
 }

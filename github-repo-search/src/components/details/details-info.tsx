@@ -22,7 +22,7 @@ function DetailsInfo({ repository }: DetailsInfoProps): JSX.Element {
 
         {topics.length > 0 && <div className={styles.detailsTopics} >{topics.map((item) => <Chip label={item} key={item} />)}</div>}
         <p>{description}</p>
-        <p>{license} licence</p>
+        <p className={styles.detailsLicence}>{`${license} licence`}</p>
       </div>
     </div>
   );

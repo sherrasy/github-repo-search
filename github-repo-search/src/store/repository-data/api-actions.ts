@@ -1,9 +1,8 @@
-import { REDUCER_NAME } from "@/utils/constant";
 import { RepositoriesData, Repository } from "@frontend-types/repository.interface";
 import { AppDispatch, State } from '@frontend-types/state.type';
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { adaptRepositoriesToClient } from "@utils/adapterToClient";
-import { ActionName } from '@utils/constant';
+import { DefaultStoreName } from '@utils/constant';
 import { GraphQLClient } from "graphql-request";
 import SearchRepositories from "./search-query.graphql";
 
@@ -17,7 +16,7 @@ export const fetchRepositories = createAsyncThunk<
     extra: GraphQLClient;
   }
 >(
-  `${REDUCER_NAME}/${ActionName.FetchRepositories}`,
+  `${DefaultStoreName.Reducer}/${DefaultStoreName.Action}`,
   async (searchString, { extra: api }) => {
     try {
       const data = await api.request<RepositoriesData>(SearchRepositories, {searchString});
